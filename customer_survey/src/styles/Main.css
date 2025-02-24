@@ -1,0 +1,50 @@
+header{
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+header nav div{
+    padding: 10px;
+}
+header nav div p{
+    padding: 10px;
+}
+.list-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    padding:10px;
+    width: fit-content;
+    border: none;
+    background-color: none;
+}
+
+main p{
+    text-align: center;
+    padding: 40px;
+    font-size: large;
+}
+
+.customer-page{
+    text-align: center;
+    padding: 50px;
+}
+.customer-page .link-survey{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}

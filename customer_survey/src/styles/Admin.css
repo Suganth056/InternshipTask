@@ -1,0 +1,70 @@
+.create-survey{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.create-survey p{
+    font-weight: bold;
+}
+.create-survey form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+form .container{
+    display:grid;
+    grid-template-columns: 30% 70%;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+}
+form .container label{
+    font-weight: bold;
+}
+form .container textarea{
+    resize: none;
+    padding: 10px;
+}
+
+.box-container{
+    display: flex;
+    text-align: left;
+}
+
+.box{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.box input{
+    width: max-content;
+    padding: 5px;
+}
+.rating input{
+    padding: 10px;
+}
+
+.btn-container-admin{
+    padding: 20px 0px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn-container-admin button{
+    width:max-content;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
