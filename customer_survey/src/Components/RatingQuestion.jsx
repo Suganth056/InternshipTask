@@ -13,9 +13,11 @@ const RatingQuestion = () => {
     
     let temp=[];
     const [activeCount,setActiveCount]=useState(1);
-    console.log(activeCount)
+    // console.log(activeCount)
     console.log(id);
 
+    const [valueDetector,setValueDetector]=useState([]);
+    const [prevValue,setPrevValue]=useState(null);
 
 
     useEffect(()=>{
@@ -29,7 +31,7 @@ const RatingQuestion = () => {
                 console.log(response);
                 setLen(response.length);
                 let r=await response.filter(data => data.id == id);
-                console.log("ERE",r,len);
+                // console.log("ERE",r,len);
                 setQuestion(r);
                 console.log(questions)
                 
@@ -72,6 +74,15 @@ const RatingQuestion = () => {
         }
     }
 
+    useEffect(()=>{
+        console.log("______++++",valueDetector);
+        let arr=valueDetector.filter((data)=>(
+            data.id==id
+        ))
+        setPrevValue(arr);
+        console.log("_____arr____",arr,prevValue);
+        
+    },[valueDetector])
     const fetchCustomerRating=async()=>{
         try{
             console.log("Entered into getting customer");
@@ -79,6 +90,22 @@ const RatingQuestion = () => {
             console.log("res_______",res);
             let count=await res.data[id-1].activeCount;
             setActiveCount(count);
+            
+            setValueDetector((prev)=>res.data);
+            
+            console.log("Value Detector",valueDetector);
+        }
+        catch(err){
+            console.log("error",err);
+        }
+    }
+
+    const updateValue= async(obj)=>{
+        try{
+            
+            const res=await axios.patch(`http://localhost:3501/rating/${id}`,{activeCount});
+            console.log(res);
+
         }
         catch(err){
             console.log("error",err);
@@ -87,10 +114,21 @@ const RatingQuestion = () => {
 
     const nextBtn=()=>{
 
-        let obj={id:(Number)(id),activeCount}
-        console.log(obj);
-        postDetail(obj);
-        setRemarks("");
+
+        if(prevValue.length){
+            setPrevValue(prev=>[]);
+            console.log("Into the PrevValue");
+            let obj={id,activeCount,remarks}
+            console.log(obj);
+            updateValue(obj);
+        }
+        else{
+            let obj={id,activeCount,remarks}
+            console.log(obj);
+            postDetail(obj);
+            setRemarks("");
+        }
+        
         nav(`/rating/${++id}`);
     }
 
@@ -105,7 +143,7 @@ const RatingQuestion = () => {
         let ok=confirm("Are you sure want to submit");
         if(ok){
             if(activeCount){
-                let obj={id:(Number)(id),activeCount}
+                let obj={id:(Number)(id),activeCount,remarks}
                 console.log(obj);
                 postDetail(obj);
                 setActiveCount(null);

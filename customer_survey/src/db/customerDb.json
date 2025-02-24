@@ -1,5 +1,19 @@
 {
   "rating": [
-    
+    {
+      "id": "1",
+      "activeCount": 4,
+      "remarks": ""
+    },
+    {
+      "id": "2",
+      "activeCount": 5,
+      "remarks": ""
+    },
+    {
+      "id": 3,
+      "activeCount": 5,
+      "remarks": "The query"
+    }
   ]
 }

@@ -68,3 +68,11 @@ form .container textarea{
     cursor: pointer;
     border-radius: 5px;
 }
+
+.radio:checked{
+    accent-color: blue;
+}
+
+.radio{
+    min-width: 20px;
+}

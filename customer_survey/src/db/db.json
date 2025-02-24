@@ -1,5 +1,22 @@
 {
   "data": [
-    
+    {
+      "id": 1,
+      "question": "What is your hobby",
+      "questionType": "ratings",
+      "ratingCount": 10
+    },
+    {
+      "id": 2,
+      "question": "What is your favourite game",
+      "questionType": "ratings",
+      "ratingCount": 5
+    },
+    {
+      "id": 3,
+      "question": "Thank you for your response",
+      "questionType": "input",
+      "ratingCount": 0
+    }
   ]
 }

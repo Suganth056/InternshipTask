@@ -6,8 +6,7 @@ const AdminPage = () => {
     const [question,setQuestion]=useState();
     const [questionType,setType]=useState("");
     const [count,setCount]=useState(1);
-    // const [obj,setObj]=useState();
-    const [datas,setData]=useState("");
+
     const [countLen, setCountLen] = useState(0);
     console.log(question);
 
@@ -50,29 +49,25 @@ const AdminPage = () => {
         }
         
     }
-    
+    useEffect(() => {
+        console.log(countLen); // Logs updated state
+    }, [countLen]);
     useEffect(()=>{
         const fetchDetails=async()=>{
-            try{
-                let response=await fetch("http://localhost:3500/data").then(res => res.json());
-                console.log(response)
-                let len=await response.length;
-                console.log(len);
-                let res=await setCountLen(len);
-                console.log(countLen);
-                if(len===0){
-                    setCountLen(1);
-                }
-                else{
-                    setCountLen(len);
-                    
-                }
-                console.log(countLen);
+            try {
+                let response = await fetch("http://localhost:3500/data").then(res => res.json());
+                console.log(response);
                 
+                let len = response.length;
+                console.log(len);
+            
+                setCountLen(len === 0 ? 1 : len);
+            
+                // Logging in useEffect ensures we see the updated value
+            } catch (err) {
+                console.log(err);
             }
-            catch(err){
-
-            }
+            
         }
         fetchDetails();
     },[])
@@ -93,19 +88,19 @@ const AdminPage = () => {
             <p>Create a Survey</p>
             <form action="">
                 <div className='container'>
-                    <label htmlFor="">Enter Question</label>
-                    <textarea placeholder='Enter Question' onChange={(e)=>setQuestion(e.target.value)} value={question} required></textarea>
+                    <label htmlFor="text">Enter Question</label>
+                    <textarea placeholder='Enter Question' onChange={(e)=>setQuestion(e.target.value)} value={question} required id="text"></textarea>
                 </div>
                 <div className='container'>
                     <label htmlFor="">Enter Question Type</label>
                     <div  className='box-container'>
                         <div className='box'>
-                            <input type="radio" name="Type" value="ratings" onClick={(e)=>setType(e.target.value)}/>
-                            <label htmlFor="">Ratings</label>
+                            <input type="radio" name="Type" value="ratings" id="ratings"onClick={(e)=>setType(e.target.value)} className='radio'/>
+                            <label htmlFor="ratings">Ratings</label>
                         </div>
                         <div className='box'>
-                            <input type="radio" name="Type" value="input" onClick={(e)=>setType(e.target.value)}/>
-                            <label htmlFor="">Input</label>
+                            <input type="radio" name="Type" value="input" id="input" onClick={(e)=>setType(e.target.value)} className='radio'/>
+                            <label htmlFor="input">Input</label>
                         </div> 
                     </div>  
                 </div>
