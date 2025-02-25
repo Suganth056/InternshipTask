@@ -1,22 +1,5 @@
 {
   "data": [
-    {
-      "id": 1,
-      "question": "What is meant by you",
-      "questionType": "ratings",
-      "ratingCount": 5
-    },
-    {
-      "id": 2,
-      "question": "Enter Your Age",
-      "questionType": "ratings",
-      "ratingCount": 5
-    },
-    {
-      "id": 3,
-      "question": "The question",
-      "questionType": "input",
-      "ratingCount": 10
-    }
+    
   ]
 }
