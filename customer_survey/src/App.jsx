@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
 import './App.css'
 import RootLayout from './Layout/RootLayout';

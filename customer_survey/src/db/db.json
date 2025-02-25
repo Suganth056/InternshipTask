@@ -2,21 +2,21 @@
   "data": [
     {
       "id": 1,
-      "question": "What is your hobby",
+      "question": "What is meant by you",
       "questionType": "ratings",
-      "ratingCount": 10
+      "ratingCount": 5
     },
     {
       "id": 2,
-      "question": "What is your favourite game",
+      "question": "Enter Your Age",
       "questionType": "ratings",
       "ratingCount": 5
     },
     {
       "id": 3,
-      "question": "Thank you for your response",
+      "question": "The question",
       "questionType": "input",
-      "ratingCount": 0
+      "ratingCount": 10
     }
   ]
 }

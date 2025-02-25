@@ -31,9 +31,7 @@ const RatingQuestion = () => {
                 console.log(response);
                 setLen(response.length);
                 let r=await response.filter(data => data.id == id);
-                // console.log("ERE",r,len);
                 setQuestion(r);
-                console.log(questions)
                 
             }
             catch(err){
@@ -53,7 +51,7 @@ const RatingQuestion = () => {
                     for (let i = 1; i <= questions[0].ratingCount; i++) {
                         temp.push(i);
                     }
-                    console.log("Generated Numbers:", temp);
+                    // console.log("Generated Numbers:", temp);
                     return temp; // Correctly updates state
                 });
         
@@ -67,7 +65,7 @@ const RatingQuestion = () => {
         try{
             console.log("Entered into Details customer")
             const res=await axios.post('http://localhost:3501/rating',obj);
-            console.log("res_______",res);
+
         }
         catch(err){
             console.log("error",err);
@@ -80,7 +78,6 @@ const RatingQuestion = () => {
             data.id==id
         ))
         setPrevValue(arr);
-        console.log("_____arr____",arr,prevValue);
         
     },[valueDetector])
     const fetchCustomerRating=async()=>{
@@ -92,8 +89,7 @@ const RatingQuestion = () => {
             setActiveCount(count);
             
             setValueDetector((prev)=>res.data);
-            
-            console.log("Value Detector",valueDetector);
+ 
         }
         catch(err){
             console.log("error",err);
@@ -124,7 +120,7 @@ const RatingQuestion = () => {
         }
         else{
             let obj={id,activeCount,remarks}
-            console.log(obj);
+            // console.log(obj);
             postDetail(obj);
             setRemarks("");
         }

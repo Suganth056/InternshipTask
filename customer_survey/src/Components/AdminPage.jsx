@@ -8,7 +8,6 @@ const AdminPage = () => {
     const [count,setCount]=useState(1);
 
     const [countLen, setCountLen] = useState(0);
-    console.log(question);
 
     const postDetails=async(postOptions)=>{
         try{
@@ -23,8 +22,8 @@ const AdminPage = () => {
         e.preventDefault();
         
         if(question){
-            console.log("Questions filled");
-            console.log("Clen=",countLen);
+            // console.log("Questions filled");
+            // console.log("Clen=",countLen);
             
             let data={
                 id:countLen,
@@ -41,7 +40,11 @@ const AdminPage = () => {
                 body:JSON.stringify(data)
             }
             postDetails(postOptions);
-            console.log("Submitted");
+            setQuestion("");
+            setType("");
+            setCount("")
+            alert("Submitted successfully");
+            
         }
 
         else{
